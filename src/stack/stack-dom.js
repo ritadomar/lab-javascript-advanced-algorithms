@@ -56,7 +56,7 @@ const generateWarningStack = type => {
   }
 };
 
-// adds a new value to the stack
+// adds a new value to the stack -> generates warning if an error happens
 const addToStack = () => {
   if (newStack.push(stackInput.value) === 'Stack Overflow') {
     generateWarningStack('overflow');
@@ -66,6 +66,7 @@ const addToStack = () => {
   }
 };
 
+// removes value from the stack -> generates warning if an error happens
 const removeFromStack = () => {
   if (newStack.pop() === 'Stack Underflow') {
     generateWarningStack('underflow');
