@@ -40,16 +40,24 @@ generateListQueue();
 const generateWarningQueue = type => {
   if (type === 'underflow') {
     // ... your code goes here
+    warningBottomQueue.style.display = 'block';
+    warningBottomQueue.innerText = type;
   } else if (type === 'overflow') {
     // ... your code goes here
+    warningTopQueue.style.display = 'block';
+    warningTopQueue.innerText = type;
   }
 };
 
-const addToQueue = () => {
+const addToQueue = item => {
   try {
     // ... your code goes here
+    queue.enqueue(item);
+    clearQueueInput();
+    generateListQueue();
   } catch (error) {
     // there was an overflow error, handle it
+    generateWarningQueue('overflow');
   }
 };
 
