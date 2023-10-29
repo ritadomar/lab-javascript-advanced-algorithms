@@ -35,7 +35,8 @@ class Queue {
   dequeue() {
     // ... your code goes here
     if (!this.isEmpty()) {
-      return this.queueControl.shift();
+      this.queueControl.shift();
+      return this.queueControl;
     } else {
       throw new Error('QUEUE_UNDERFLOW');
     }

@@ -49,10 +49,10 @@ const generateWarningQueue = type => {
   }
 };
 
-const addToQueue = item => {
+const addToQueue = () => {
   try {
     // ... your code goes here
-    queue.enqueue(item);
+    queue.enqueue(queueInput.value);
     clearQueueInput();
     generateListQueue();
   } catch (error) {
@@ -64,8 +64,12 @@ const addToQueue = item => {
 const removeFromQueue = () => {
   try {
     // ... your code goes here
+    queue.dequeue();
+    clearQueueInput();
+    generateListQueue();
   } catch (error) {
     // there was an underflow error, handle it
+    generateWarningQueue('underflow');
   }
 };
 
